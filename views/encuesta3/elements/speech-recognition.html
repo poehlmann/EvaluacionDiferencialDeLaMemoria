@@ -1,0 +1,96 @@
+<link href="../bower_components/polymer/polymer.html" rel="import">
+
+<polymer-element name="speech-recognition">
+  <script>
+    Polymer('speech-recognition', {
+      publish: {
+        phraseValue: '',
+        isRecognizing: false,
+        continuous: false,
+        interimResults: false,
+        language: navigator.language // TODO: standard detection
+      },
+      
+      created: function () {
+        this._engine = new webkitSpeechRecognition();
+      },
+      
+      attached: function () {
+        var self = this;
+        
+        this._engine.onstart = function (ev) {
+          self.isRecognizing = true;
+          
+          self.fire('start', ev);
+        };
+        
+        this._engine.onend = function (ev) {
+          self.isRecognizing = false;
+          
+          self.fire('end');
+        };
+        
+        this._engine.onerror = function (err) {
+          self.isRecognizing = false;
+          
+          self.fire('error', err);
+        };
+        
+        this._engine.onresult = function (ev) {
+          self.fire('recognize', ev);
+          
+          var resultList = ev.results;
+          
+          var transcripts = [];
+          
+          for (var i = 0; i < resultList.length; ++i) {
+            var result = resultList[i];
+            
+            self.fire('result', {
+              result: result
+            });
+            
+            for (var j = 0; j < result.length; ++j) {
+              var alternative = result[j];
+              
+              if (i >= ev.resultIndex) {
+                var alternativeEvent = {
+                  isFinal: result.isFinal,
+                  alternative: alternative
+                };
+                
+                self.fire('alternative', alternativeEvent);
+                
+                if (result.isFinal) {
+                  self.fire('final-alternative', alternativeEvent);
+                }
+              }
+              
+              transcripts.push(alternative.transcript);
+            }
+          }
+          
+          var phrase = transcripts.join('');
+          
+          self.phraseValue = phrase;
+          
+          self.fire('phrase', {
+            phrase: phrase
+          });
+        };
+      },
+      
+      start: function () {
+        this._engine.continuous = this.continuous;
+        this._engine.interimResults = this.interimResults;
+        this._engine.lang = this.language;
+        
+        this._engine.start();
+      },
+      
+      stop: function () {
+        this._engine.stop();
+      }
+    });
+  </script>
+</polymer-element>

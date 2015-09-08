@@ -1,0 +1,18 @@
+<div class="well side-nav" style="padding: 0px;">
+    <ul class="nav nav-list" style="padding-left: 13px;padding-right: 14px;">
+        <?php foreach($menu as $m): ?>
+            <?php if(isset($id)): ?>
+                <?php $_style = 'active'; ?>
+            <?php else: ?>
+                <?php $_style = ''; ?>
+            <?php endif; ?>
+                <li class="<?php echo $m['tipo']; ?>">
+                    <?php if((strcmp($m['tipo'],'nav-header')!=0)): ?>
+                         <a  href="<?php echo $m['enlace']; ?>"><i class="<?php echo $m['imagen']; ?>"> </i> <?php echo $m['titulo']; ?></a>
+                    <?php else: ?>
+                        <?php echo $m['titulo']; ?>
+                    <?php endif; ?>
+                </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
