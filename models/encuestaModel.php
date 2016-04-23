@@ -1,5 +1,4 @@
 <?php
-
 class encuestaModel extends Model
 {
     public function __construct()
@@ -7,7 +6,6 @@ class encuestaModel extends Model
         parent::__construct();
        
     }
-
     public function insertarEncuesta($numEncu,$preg,$resp,$id_usuario)
     {
         $id= $this->_db->query("select count(*) from tblencuestaedm  where pregunta=$preg and id_usuario=$id_usuario");
@@ -22,7 +20,6 @@ class encuestaModel extends Model
                         ':id_usuario' => $id_usuario
                     ));
         }
-
         $this->_db->prepare("INSERT INTO tblencuestaedm VALUES (null,:numEnc,:preg, :resp , :id_usuario,now())")
                 ->execute(
                         array(
@@ -43,21 +40,21 @@ class encuestaModel extends Model
     public function getNombre($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select nombre from tblusuario where id = $id");
+        $post = $this->_db->query("select nombre from tblpersona where id = $id");
         return $post->fetch(PDO::FETCH_COLUMN);
     }
 
     public function getApellido($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select apellido from tblusuario where id = $id");
+        $post = $this->_db->query("select apellido from tblpersona where id = $id");
         return $post->fetch(PDO::FETCH_COLUMN);
     }
 
       public function getFechaNac($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select fechanac from tblusuario where id = $id");
+        $post = $this->_db->query("select fechanac from tblpersona where id = $id");
         return $post->fetch(PDO::FETCH_COLUMN);
     }
     public function verificarAnimal($animal)

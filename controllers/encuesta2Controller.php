@@ -27,5 +27,8 @@ class encuesta2Controller extends Controller
         $this->_encuesta2->insertarEncuesta2($cont,$this->_id_usuario);
         $this->redireccionar('encuesta3');
     }
+    public function obtenerResultado(){
+        print_r($this->_encuesta2->obtenerResultadoUsuario($this->_id_usuario));
+    }
 }
 ?>

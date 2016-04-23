@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-03-17 04:06:34
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-01 03:15:38
          compiled from "C:\Xampp\htdocs\mvc\views\post\nuevo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3162054d7bb0b563d19-38098700%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3c4a3070acf42a4c26ecd5dd2af6f6921ce7059c' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\post\\nuevo.tpl',
-      1 => 1426561586,
+      1 => 1448936135,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'datos' => 0,
+    'tipousuario' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -74,4 +75,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <p><button class="btn btn-primary"><i class="icon-ok icon-white"> </i> Guardar</button></p>
     </form>
-</div><?php }} ?>
+</div>
+    <?php $_smarty_tpl->tpl_vars['tipousuario'] = new Smarty_variable(substr($_SERVER['REQUEST_URI'],-1), null, 0);?>
+    <?php if ($_smarty_tpl->tpl_vars['tipousuario']->value==2){?>
+    <h1 class="heading">MAPA DE NEUROPSICOLOGOS</h1><div align="center"><a href="http://localhost:8080/google%20maps/">Entrar para introducir tu ubicacion</a></div>
+    <?php }?><?php }} ?>

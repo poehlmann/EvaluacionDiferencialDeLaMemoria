@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-02-04 20:13:55
+<?php /* Smarty version Smarty-3.1.8, created on 2015-11-04 03:02:53
          compiled from "C:\Xampp\htdocs\mvc\views\acl\permisos_role.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2563354d26f73c3ca19-30632311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '246ac8034506de905a823b0887079ff20f9e185f' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\acl\\permisos_role.tpl',
-      1 => 1352150098,
+      1 => 1446602572,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.8',
+  'unifunc' => 'content_54d26f73dbb775_88346056',
   'variables' => 
   array (
     'role' => 0,
@@ -22,10 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pr' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.8',
-  'unifunc' => 'content_54d26f73dbb775_88346056',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54d26f73dbb775_88346056')) {function content_54d26f73dbb775_88346056($_smarty_tpl) {?><h2>Administracion de permisos de role</h2>
+<?php if ($_valid && !is_callable('content_54d26f73dbb775_88346056')) {function content_54d26f73dbb775_88346056($_smarty_tpl) {?><h2>Administracion de permisos de roles</h2>
 
 <p><strong>Role:</strong> <?php echo $_smarty_tpl->tpl_vars['role']->value['role'];?>
 </p>

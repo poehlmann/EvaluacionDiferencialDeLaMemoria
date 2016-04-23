@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-03-17 16:45:46
+<?php /* Smarty version Smarty-3.1.8, created on 2015-11-14 06:08:36
          compiled from "C:\Xampp\htdocs\mvc\views\post\medicos.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:306954d6ddd6375840-05770737%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ad1b5776de8027ad3f0361fd3adda2f93178f8' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\post\\medicos.tpl',
-      1 => 1426607142,
+      1 => 1447477671,
       2 => 'file',
     ),
   ),

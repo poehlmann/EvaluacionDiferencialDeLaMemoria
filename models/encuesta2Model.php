@@ -41,4 +41,11 @@ class encuesta2Model extends Model
         return $post->fetch(PDO::FETCH_COLUMN);
     }
 
+    public function obtenerResultadoUsuario($id_usuario)
+    {
+        $id_usuario = (int)$id_usuario;
+        $post = $this->_db->query("select idrespuesta from tblencuestaequilam where idusuario=$id_usuario");
+        return $post->fetch(PDO::FETCH_COLUMN);
+    }
+
 }

@@ -99,15 +99,16 @@ class menuModelWidget extends Model
                 'imagen' => 'icon-home'
                 )
         );
-        
+        /*
         if(!Session::get('autenticado')){
             $menus['top'][] =array(
                 'id' => 'registro',
                 'titulo' => 'Registro',
                 'enlace' => BASE_URL . 'usuarios/registro',
-                'imagen' => 'icon-book'
+                'imagen' => 'icon-file'
                 );
         }
+        */
         if(Session::get('autenticado'))
         {
             /*permitir solo ver a los usuarios admin*/

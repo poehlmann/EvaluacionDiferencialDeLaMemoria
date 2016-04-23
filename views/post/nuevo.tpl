@@ -45,3 +45,7 @@
         <p><button class="btn btn-primary"><i class="icon-ok icon-white"> </i> Guardar</button></p>
     </form>
 </div>
+    {$tipousuario = $smarty.server.REQUEST_URI|substr:-1}
+    {if $tipousuario eq 2}
+    <h1 class="heading">MAPA DE NEUROPSICOLOGOS</h1><div align="center"><a href="http://localhost:8080/google%20maps/">Entrar para introducir tu ubicacion</a></div>
+    {/if}

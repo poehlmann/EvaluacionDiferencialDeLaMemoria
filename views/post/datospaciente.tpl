@@ -14,6 +14,8 @@
             <td style="text-align: center;">{$datos.id}</td>
         </tr>
         -->
+        {*{$rol.role|@var_dump}*}
+         {*{$encuesta.id_evaluacion|@var_dump}*}
         <tr>
             <td style='font-weight:bold;'> Nombre </td>
             <td style="text-align: center; vertical-align: middle;">{$datos.nombre}</td>
@@ -45,18 +47,27 @@
                 <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}post/eliminar/{$datos.id}">Eliminar</a></td>
             {/if}
         </tr>
-        <tr>
-            <td style='font-weight:bold;'> Resultados </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}resultado/buscar/{$datos.id}">.</a></td>
-        </tr>
-        <tr>
-            <td style='font-weight:bold;'> ... </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}xxx/xxx/{$datos.id}">.</a></td>
-        </tr>
-        <tr>
-            <td style='font-weight:bold;'> ... </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}xxx/xxx/{$datos.id}">.</a></td>
-        </tr>
+         {if $rol.role==3 or $rol.role==1}
+             {if $encuesta.id_evaluacion!=NULL}
+                <tr>
+                    <td style='font-weight:bold;'> Resultados </td>
+                    <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}resultado/buscar/{$datos.id}">Resultados</a></td>
+                </tr>
+             {else}
+                 <tr>
+                     <td style='font-weight:bold;'> Resultados </td>
+                     <td style="text-align: center; vertical-align: middle;">No ha realizado la evalación</td>
+                 </tr>
+             {/if}
+         {/if}
+        {*<tr>*}
+            {*<td style='font-weight:bold;'> ... </td>*}
+            {*<td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}xxx/xxx/{$datos.id}">.</a></td>*}
+        {*</tr>*}
+        {*<tr>*}
+            {*<td style='font-weight:bold;'> ... </td>*}
+            {*<td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}xxx/xxx/{$datos.id}">.</a></td>*}
+        {*</tr>*}
     {/foreach}
 </table>
 

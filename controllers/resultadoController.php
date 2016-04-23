@@ -7,6 +7,7 @@ class resultadoController extends Controller
         parent::__construct();
         $this->_resultado = $this->loadModel('resultado');
         $this->_id_usuario = Session::get('id_usuario');
+        $this->_encuesta2 = $this->loadModel('encuesta2');
     }
     
     public function index()

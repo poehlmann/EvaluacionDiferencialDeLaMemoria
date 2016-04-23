@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-03-17 02:29:56
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-08 01:39:20
          compiled from "C:\Xampp\htdocs\mvc\views\post\pacientes.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2804554d6e0ee0daae9-56673364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'da4f9fc52b1c667e8a2885bad45c43e1a9234537' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\post\\pacientes.tpl',
-      1 => 1426555793,
+      1 => 1449535160,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '_layoutParams' => 0,
     'posts' => 0,
     'datos' => 0,
+    'encuesta' => 0,
     'paginacion' => 0,
   ),
   'has_nocache_code' => false,
@@ -38,9 +39,10 @@ post/nuevo/3" class="btn btn-primary"><i class="icon-plus-sign icon-white"> </i>
 
 <table class="table table-bordered table-condensed table-striped">
     <tr>
-        <th>ID</th>
+        
         <th>NOMBRE</th>
         <th>EMAIL</th>
+        <th>RESULTADO</th>
          
         <?php if ($_smarty_tpl->tpl_vars['_acl']->value->permiso('editar_post')){?><th></th><?php }?>
         <?php if ($_smarty_tpl->tpl_vars['_acl']->value->permiso('eliminar_post')){?><th></th><?php }?>
@@ -52,8 +54,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['datos']->key => $_smarty_tpl->tpl_var
 $_smarty_tpl->tpl_vars['datos']->_loop = true;
 ?>
         <tr>
-            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
-</td>
+            
             <td><?php echo $_smarty_tpl->tpl_vars['datos']->value['nombre'];?>
 </td>
             <td><?php echo $_smarty_tpl->tpl_vars['datos']->value['email'];?>
@@ -84,6 +85,13 @@ post/editar/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
 post/eliminar/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
 ">Eliminar</a></td>
             <?php }?>
+            <?php if (isset($_smarty_tpl->tpl_vars['encuesta']->value['id_evaluacion'])){?>
+                    <td style="text-align: center; vertical-align: middle;"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+resultado/buscar/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
+">Resultados</a></td>
+             <?php }else{ ?>
+                     <td style="text-align: center; vertical-align: middle;">No ha realizado la evalación</td>
+             <?php }?>
         </tr>
     <?php } ?>
 </table>

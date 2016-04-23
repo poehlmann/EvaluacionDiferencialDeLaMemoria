@@ -146,5 +146,3 @@ abstract class Controller
         
     }
 }
-
-?>

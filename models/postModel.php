@@ -8,31 +8,43 @@ class postModel extends Model
     
     public function getPosts()/*Obtiene personas registradas*/
     {
-        $post = $this->_db->query("select * from tblusuario");
+        $post = $this->_db->query("select * from tblpersona");
         return $post->fetchall();
     }
 
         public function getMedicos()/*Obtiene todos los medicos registrados*/
     {
-        $post = $this->_db->query("select * from tblusuario where role=2");
+        $post = $this->_db->query("select * from tblusuario as usuario , tblpersona as persona where role=2 and usuario.id=persona.id");
         return $post->fetchall();
     }
         public function getPacientes()
     {
-        $post = $this->_db->query("select * from tblusuario where role=3");
+        $post = $this->_db->query("select * from tblusuario as usuario , tblpersona as persona where usuario.role=3 and persona.id=usuario.id");
         return $post->fetchall();
     }
     public function getDatosPaciente($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select * from tblusuario where id = $id");
+        $post = $this->_db->query("select * from tblpersona where id = $id");
         return $post->fetchall();
+    }
+
+    public function getRole($id){
+        $id = (int) $id;
+        $post = $this->_db->query("select role from tblusuario where id=$id");
+        return $post->fetch();
+    }
+
+    public function getEncuesta($id){
+        $id = (int) $id;
+        $post = $this->_db->query("select id_evaluacion from tblusuario,tblencuestaedm where tblusuario.id=$id and tblencuestaedm.id_usuario=$id");
+        return $post->fetch();
     }
     
     public function getPost($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select * from tblusuario where id = $id");
+        $post = $this->_db->query("select * from tblpersona where id = $id");
         return $post->fetch();
     }
     
@@ -57,7 +69,7 @@ class postModel extends Model
     public function verificarUsuario($usuario)
     {
         $id = $this->_db->query(
-                "select id, codigo from tblusuario where usuario = '$usuario'"
+                "select id, codigo from tblusuario where usuario='$usuario'"
                 );
         
         return $id->fetch();
@@ -66,7 +78,7 @@ class postModel extends Model
     public function verificarEmail($email)
     {
         $id = $this->_db->query(
-                "select id from tblusuario where email = '$email'"
+                "select id from tblpersona where email = '$email'"
                 );
         
         if($id->fetch()){
@@ -76,21 +88,30 @@ class postModel extends Model
         return false;
     }
 
-    public function insertarPost($nombre,$apellido,$usuario,$pass,$email,$fechanac,$tipousuario)
+    public function insertarPost($codigo,$usuario,$pass,$tipousuario)
     {
         $random = rand(1782598471, 9999999999);
-        $this->_db->prepare("INSERT INTO tblusuario VALUES (null,:nombre,:apellido,:usuario,:pass,:email,:rol,1,:fechanac,now(),:codigo)")
+        $this->_db->prepare("INSERT INTO tblusuario VALUES (:id,:usuario,:pass,:rol,1,now(),:codigo)")
                 ->execute(
                         array(
-                           ':nombre' => $nombre,
-                           ':apellido' => $apellido,
+                           ':id' => $codigo ,
                            ':usuario' => $usuario,
                            ':pass' => Hash::getHash('sha1', $pass, HASH_KEY),
-                           ':email' => $email,
                            ':rol' => $tipousuario,
-                           ':fechanac' => $fechanac,
                            ':codigo' => $random
                         ));
+    }
+
+    public function insertarPostPersona($codigo,$nombre,$apellido,$fechanac,$email){
+        $this->_db->prepare("INSERT INTO tblpersona VALUES (:id,:nombre,:apellido,:fechanac,:email)")
+            ->execute(
+                array(
+                    ':id' => $codigo,
+                    ':nombre' => $nombre,
+                    ':apellido' => $apellido,
+                    ':fechanac' => $fechanac,
+                    ':email' => $email,
+                ));
     }
     public function editarPost($id,$nombre,$apellido,$usuario,$email,$fechanac)
     {
@@ -133,5 +154,3 @@ class postModel extends Model
     }
     
 }
-
-?>

@@ -22,19 +22,34 @@
                             <li class="<?=$_item_style?>"><a  href="<?=$item['enlace']?>"><i class="<?=$item['imagen']?> <?=  isset($inverse) ? 'icon-white' : ''?>"> </i> <?=$item['titulo']?></a></li>
                         <?php endforeach; ?>
                     </ul>
-
-                    <?php if(Session::get('autenticado')): ?>
-                        <div class="navbar-form pull-right">
-                            <a href="<?=BASE_URL?>usuarios/login/cerrar" class="btn btn-danger"><i class="icon-off icon-white"> </i> Salir</a>
-                        </div>
-                    <?php else: ?>
-                        <form class="navbar-form pull-right" method="post" action="<?=BASE_URL?>usuarios/login">
-                            <input type="hidden" value="1" name="enviar">
-                            <input class="span2" name="usuario" type="text" placeholder="Usuario">
-                            <input class="span2" name="pass" type="password" placeholder="Password">
-                            <button type="submit" class="btn btn-success"><i class="icon-user icon-white"> </i> Entrar</button>
-                        </form>
-                    <?php endif; ?>
+                    <ul class="nav pull-right">
+                        <li><a id="registrarse" href="<?=BASE_URL?>usuarios/registro">Registrarse</a></li>
+                        <li class="divider-vertical"></li>
+                        <?php if(Session::get('autenticado')): ?>
+                            <div class="navbar-form pull-right">
+                                <a href="<?=BASE_URL?>usuarios/login/cerrar" class="btn btn-danger"><i class="icon-off icon-white"> </i> Salir</a>
+                            </div>
+                        <?php else: ?>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Iniciar Sesi&oacute;n<strong class="caret"></strong></a>
+                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                <form method="post" action="<?=BASE_URL?>usuarios/login" accept-charset="UTF-8" >
+                                    <input type="hidden" value="1" name="enviar">
+                                    <input style="margin-bottom: 15px;"  name="usuario" type="text" placeholder="Usuario">
+                                    <input style="margin-bottom: 15px;" name="pass" type="password" placeholder="Password">
+                                    <!--
+                                    <input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+                                    <label class="string optional" for="user_remember_me"> Recordarme</label>
+                                    -->
+                                    <input class="btn btn-success btn-block" type="submit" id="sign-in" value="Entrar">
+                                    <label style="text-align:center;margin-top:5px">o</label>
+                                    <input class="btn btn-danger btn-block" type="button" id="sign-in-google" value="Iniciar con Google">
+                                    <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Iniciar con Facebook">
+                                </form>
+                            </div>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
                 </div>
             <?php endif; ?>
         </div>

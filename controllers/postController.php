@@ -8,6 +8,8 @@ class postController extends Controller
     {
         parent::__construct();
         $this->_post = $this->loadModel('post');
+        $this->_map = $this->loadModel('map');
+        $this->_codigo = rand(1, 99999999999999999999);
         //$this->_datopaciente= $this->loadModel('login');
     }
     
@@ -56,7 +58,9 @@ class postController extends Controller
         
             $paginador = new Paginador();
             $this->_view->assign('posts', $paginador->paginar($this->_post->getMedicos(), $pagina));/*Todos los medicos*/
+//            $this->_view->assign('map',$paginador->paginar($this->_map->getConexion()));
             $this->_view->assign('paginacion', $paginador->getView('prueba', 'post/medicos'));
+//            $this->_view->assign('map', $paginador->getView('prueba', 'post/js/map_process'));
             $this->_view->assign('titulo', 'Medicos');
             $this->_view->renderizar('medicos', 'medicos');
     }
@@ -80,6 +84,7 @@ class postController extends Controller
 
     $paginador = new Paginador();
         $this->_view->assign('posts', $paginador->paginar($this->_post->getPacientes(), $pagina));/*Todos los pacientes*/
+
         $this->_view->assign('paginacion', $paginador->getView('prueba', 'post/pacientes'));
         $this->_view->assign('titulo', 'Pacientes');
         $this->_view->renderizar('pacientes', 'pacientes');
@@ -104,6 +109,8 @@ class postController extends Controller
 
         //$paginador = new Paginador();
         $this->_view->assign('posts', ($this->_post->getDatosPaciente(Session::get('id_usuario'))));/*paciente*/
+        $this->_view->assign('rol',($this->_post->getRole(Session::get('id_usuario'))));
+        $this->_view->assign('encuesta',($this->_post->getEncuesta(Session::get('id_usuario'))));
         //$this->_view->assign('paginacion', $paginador->getView('prueba', 'post/pacientes'));
         $this->_view->assign('titulo', 'Datos Paciente');
         $this->_view->renderizar('datospaciente', 'datospaciente');
@@ -188,16 +195,18 @@ class postController extends Controller
                 $this->_view->renderizar('index', 'post/nuevo');
                 exit;
             }
-            echo $tipousuario;
             $this->_post->insertarPost(
-                    $this->getSql('nombre'),
-                    $this->getPostParam('apellido'),
+                $this->_codigo,
                     $this->getAlphaNum('usuario'),
                     $this->getSql('pass'),
-                    $this->getPostParam('email'),
-                    $this->getPostParam('fechanac'),
                     $tipousuario
                     );
+            $this->_post->insertarPostPersona( $this->_codigo,
+                                                $this->getSql('nombre'),
+                                                $this->getPostParam('apellido'),
+                                                $this->getPostParam('fechanac'),
+                                                $this->getPostParam('email')
+                                            );
             $usuario = $this->_post->verificarUsuario($this->getAlphaNum('usuario'));
             
             if(!$usuario){

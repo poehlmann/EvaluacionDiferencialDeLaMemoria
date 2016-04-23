@@ -10,5 +10,3 @@ class Hash
         return hash_final($hash);
     }
 }
-
-?>

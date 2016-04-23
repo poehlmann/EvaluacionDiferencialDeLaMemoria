@@ -158,7 +158,7 @@ var WebcamDisplay = (function () {
         var _this = this;
         this.onReady = function () { };
         this.acceptStream = function (stream) {
-            _this.stream = stream;
+            _this.stream = stream
             _this.video.src = URL.createObjectURL(stream);
             _this.video.onloadedmetadata = _this.handleStreamStart;
             _this.video.play();
@@ -169,14 +169,13 @@ var WebcamDisplay = (function () {
         };
         this.root = WebcamDisplay.createRoot();
         this.video = WebcamDisplay.createVideoElement(this.root);
-        this.stream = null;
     }
 
-        WebcamDisplay.prototype.start = function (parent) {
-            parent.appendChild(this.root);
-            navigator.webkitGetUserMedia({video: true, audio: false}, this.acceptStream, function (err) {
-            });
-        };
+    WebcamDisplay.prototype.start = function (parent) {
+        parent.appendChild(this.root);
+        navigator.webkitGetUserMedia({video: true, audio: false}, this.acceptStream, function (err) {
+        });
+    };
 
     WebcamDisplay.prototype.getRoot = function () {
         return this.root;
@@ -185,7 +184,10 @@ var WebcamDisplay = (function () {
         return this.video;
     };
     WebcamDisplay.prototype.stop = function () {
-        this.stream.stop();
+        //this.stream.stop();
+        //this.stream.pause();
+        //this.stream.src="";
+        this.stream.getVideoTracks()[0].stop();
     };
     WebcamDisplay.createRoot = function () {
         var root = document.createElement('div');
@@ -273,7 +275,7 @@ var WebcamSelectionAdapter = (function () {
          stage.classList.add('webcam-game', 'webcam-selection-game');
          document.getElementById("EspacioCam").appendChild(stage);
          return stage;
-        * */
+         * */
         var stage = document.createElement('div');
         stage.classList.add('webcam-game', 'webcam-selection-game');
         return stage;
@@ -283,11 +285,12 @@ var WebcamSelectionAdapter = (function () {
 var webcam = new WebcamDisplay();
 jQuery('#botonCamara').on('click', function() {
     var template = document.querySelector('#game-template');
+
     var father = document.getElementById("filacam");
     var child = document.getElementById("EspacioCam");
     webcam.start(father.appendChild(child));
     webcam.onReady = function () {
-        var adapter = new WebcamSelectionAdapter(webcam, true,true);
+        var adapter = new WebcamSelectionAdapter(webcam, true, false);
         adapter.loadTemplate(template);
         adapter.onSelected = function (source) {
             //source.click();
@@ -296,7 +299,8 @@ jQuery('#botonCamara').on('click', function() {
     };
 });
 
- jQuery('#botonDetenerCamara').on('click', function() {
-     webcam.stop();
- });
+jQuery('#botonDetenerCamara').on('click', function() {
+    webcam.stop();
+    $('#tablecam').hide();
+});
 

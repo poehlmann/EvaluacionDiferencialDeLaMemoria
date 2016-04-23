@@ -55,27 +55,39 @@ $(function(){
     $("#pantallacompleta").click(miFuncion);
 });
 */
-function launchFullscreen(element) {
-    if(element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if(element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-    } else if(element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-    } else if(element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-    }
-}
 
-function exitFullscreen() {
-    if(document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if(document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if(document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    }
-}
+//addEventListener("click", function() {
+//    var
+//        el = document.documentElement
+//        , rfs =
+//            el.requestFullScreen
+//            || el.webkitRequestFullScreen
+//            || el.mozRequestFullScreen
+//        ;
+//    rfs.call(el);
+//});
+//
+//function launchFullscreen(element) {
+//    if(element.requestFullscreen) {
+//        element.requestFullscreen();
+//    } else if(element.mozRequestFullScreen) {
+//        element.mozRequestFullScreen();
+//    } else if(element.webkitRequestFullscreen) {
+//        element.webkitRequestFullscreen();
+//    } else if(element.msRequestFullscreen) {
+//        element.msRequestFullscreen();
+//    }
+//}
+//
+//function exitFullscreen() {
+//    if(document.exitFullscreen) {
+//        document.exitFullscreen();
+//    } else if(document.mozCancelFullScreen) {
+//        document.mozCancelFullScreen();
+//    } else if(document.webkitExitFullscreen) {
+//        document.webkitExitFullscreen();
+//    }
+//}
 
 /**************************************************************************************************************/
 /************************************************************************************************************/
@@ -943,7 +955,7 @@ function fade(element) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
+        op -= op * 0.5;
     }, 50);
 }
 function unfade(element) {
@@ -954,8 +966,9 @@ function unfade(element) {
             clearInterval(timer);
         }
         element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        element.style.filter = 'alpha(opacity=' + op * 10 + ")";
         op += op * 1;
+        console.log("op",op);
     }, 1000);
 }
 function limpiararray()
@@ -972,7 +985,7 @@ function presionado(id)
         document.getElementById("espera").style.color="red";
         if(espera==1) {
             setTimeout(function () {
-                evaluar(id);
+                evaluarVideo(id);
             }, 3000);
 
             var elemento =
@@ -985,7 +998,7 @@ function presionado(id)
     }
 
 }
-function evaluar(id){
+function evaluarVideo(id){
     if((intentos<3)||(orden==7))
     {
         if (orden == 6)
@@ -1142,12 +1155,8 @@ function evaluar(id){
     }
     else{
         activar=false;
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML ="";
-        document.getElementById("orden3").innerHTML ="";
-        document.getElementById("orden4").innerHTML ="";
-        document.getElementById("orden5").innerHTML ="";
-        document.getElementById("orden6").innerHTML ="";
+        document.getElementById("orden").innerHTML ="";
+        $("#tablecam").hide();
     }
     espera=0;
     document.getElementById("espera").innerHTML = "CONTINUE";
@@ -1167,37 +1176,22 @@ function iniciar()
         combinacion(orden);
         activado=true;
     }else{
-        document.getElementById("orden6").innerHTML ="";
+        document.getElementById("orden").innerHTML ="";
     }
 }
 
 function pintarorden(orden)
 {
-    if(orden==1){document.getElementById("orden1").innerHTML = "1. Se&ntilde;ale el cuadrado peque&ntilde;o";}
+    if(orden==1){document.getElementById("orden").innerHTML = "1. Se&ntilde;ale el cuadrado peque&ntilde;o";}
     if(orden==2){
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML = "2. Se&ntilde;ale el circulo peque&ntilde;o y un cuadrado peque&ntilde;o";}
+        document.getElementById("orden").innerHTML = "2. Se&ntilde;ale el circulo peque&ntilde;o y un cuadrado peque&ntilde;o";}
     if(orden==3){
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML ="";
-        document.getElementById("orden3").innerHTML = "3. Se&ntilde;ale el circulo peque&ntilde;o y un cuadrado grande";}
+        document.getElementById("orden").innerHTML = "3. Se&ntilde;ale el circulo peque&ntilde;o y un cuadrado grande";}
     if(orden==4){
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML ="";
-        document.getElementById("orden3").innerHTML ="";
-        document.getElementById("orden4").innerHTML = "4. Se&ntilde;ale el circulo peque&ntilde;o y luego los cuadrados grandes";}
+        document.getElementById("orden").innerHTML = "4. Se&ntilde;ale el circulo peque&ntilde;o y luego los cuadrados grandes";}
     if(orden==5){
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML ="";
-        document.getElementById("orden3").innerHTML ="";
-        document.getElementById("orden4").innerHTML ="";
-        document.getElementById("orden5").innerHTML = "5. Se&ntilde;ale el circulo grande si hay un cuadrado peque&ntilde;o";}
+        document.getElementById("orden").innerHTML = "5. Se&ntilde;ale el circulo grande si hay un cuadrado peque&ntilde;o";}
     if(orden==6){
-        document.getElementById("orden1").innerHTML ="";
-        document.getElementById("orden2").innerHTML ="";
-        document.getElementById("orden3").innerHTML ="";
-        document.getElementById("orden4").innerHTML ="";
-        document.getElementById("orden5").innerHTML ="";
-        document.getElementById("orden6").innerHTML = "6. Ademas de se&ntilde;alar los circulos se&ntilde;ale el cuadrado peque&ntilde;o";}
+        document.getElementById("orden").innerHTML = "6. Ademas de se&ntilde;alar los circulos se&ntilde;ale el cuadrado peque&ntilde;o";}
 }
 /*******************************************************************************************************************/

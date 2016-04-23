@@ -32,6 +32,7 @@ class encuesta3Controller extends Controller
          $this->redireccionar('encuesta4');
     }
     /*Pregunta 1*/
+
     public function pregunta1()
     {
         //$this->_acl->acceso('nuevo_post'); lista de acceso
@@ -66,7 +67,7 @@ class encuesta3Controller extends Controller
             }
             /*orden 3*/
             //date ("Y") =  Año actual con 4 dígitos, ej 2013 date("y")= Año actual con 2 dígitos, ej 13
-            if($this->getPostParam('11') == date("Y") || $this->getPostParam('11') == date("y"))
+            if($this->getPostParam('13') == date("Y") || $this->getPostParam('13') == date("y"))
             {
                 $cont++;
             }
@@ -88,7 +89,9 @@ class encuesta3Controller extends Controller
         }
         $this->_view->renderizar('index', 'encuesta3');
     }
+
     /*Pregunta 2*/
+
     public function pregunta2()
     {
         $cont=0;
@@ -121,7 +124,9 @@ class encuesta3Controller extends Controller
         }
         $this->_view->renderizar('index', 'encuesta3');
     }
+
     /*Pregunta 3*/
+
     public function pregunta3()
     {
         $cont=0;
@@ -149,7 +154,9 @@ class encuesta3Controller extends Controller
         }
         $this->_view->renderizar('index', 'encuesta3');
     }
+
     /*Pregunta 4*/
+
     public function pregunta4()
     {
         $cont=0;

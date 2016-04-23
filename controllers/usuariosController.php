@@ -10,5 +10,3 @@ class usuariosController extends Controller
     public function index()
     {}
 }
-
-?>

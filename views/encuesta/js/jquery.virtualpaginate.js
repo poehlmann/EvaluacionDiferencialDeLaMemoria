@@ -82,7 +82,11 @@ virtualpaginate.prototype.buildpagination=function(divids, optnavtext){
 	var paginaterawHTML=document.getElementById(primarypaginatediv).innerHTML;
 	this.paginate_build(primarypaginatediv, 0, optnavtext);
 	for (var i=0; i<divids.length; i++){
-		document.getElementById(divids[i]).innerHTML=paginaterawHTML;
+		console.log("virtualPaginate",paginaterawHTML);
+		console.log("divids",divids[i]);
+		if(paginaterawHTML!=null)
+		{document.getElementById(divids[i]).html(paginaterawHTML);}
+
 		this.paginate_build(divids[i], i+1, optnavtext)
 	}
 };

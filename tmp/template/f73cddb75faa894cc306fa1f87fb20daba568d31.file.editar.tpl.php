@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-03-17 15:55:33
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-01 03:17:02
          compiled from "C:\Xampp\htdocs\mvc\views\post\editar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:301245507430eda7b76-34046026%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f73cddb75faa894cc306fa1f87fb20daba568d31' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\post\\editar.tpl',
-      1 => 1426604107,
+      1 => 1448936220,
       2 => 'file',
     ),
   ),
@@ -73,4 +73,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <button type="submit" class="btn btn-primary"><i class="icon-plus-sign icon-white"> </i> Enviar</button>
         </p>
     </form>
-</div><?php }} ?>
+</div>
+<?php }} ?>

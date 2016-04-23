@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-08-24 02:15:09
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-15 20:46:57
          compiled from "C:\Xampp\htdocs\mvc\views\encuesta\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2769954d7f8f8870181-25896162%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'df897ec375152d9d11cbd606336bbdcf5f7e7056' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\encuesta\\index.tpl',
-      1 => 1440375308,
+      1 => 1450208815,
       2 => 'file',
     ),
   ),
@@ -59,7 +59,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 views/encuesta/img/posiblelogo.png">
                     </td>
                     <td style="align-content: center">
-                        <button class="btn btn-danger" onclick="gallery.navigate(1);launchFullscreen(document.documentElement);"><i class="icon-star icon-white"></i>Inicio<i class="icon-star icon-white"></i></button>
+                        <button class="btn btn-danger" onclick="gallery.navigate(1);"><i class="icon-star icon-white"></i>Inicio<i class="icon-star icon-white"></i></button>
                     </td>
                 </tr>
             </table>
@@ -355,8 +355,7 @@ encuesta/pregunta5" enctype="multipart/form-data">
 "></speech-input>
 						<input type="hidden" name="text1" value="<?php echo print_polymer_binding(array('expr'=>'text1'),$_smarty_tpl);?>
 ">
-						<p><?php echo print_polymer_binding(array('expr'=>'text1'),$_smarty_tpl);?>
-</p>
+						
 					</template>
 				</table>
 				<button class="btn btn-success" onclick="gallery.navigate(6)"><i class="icon-folder-open icon-white"></i>Siguiente</button>
@@ -403,15 +402,16 @@ encuesta/pregunta7" enctype="multipart/form-data">
 						<p>
 						<div align="center"><button id="button1" class="botonesdemo" onclick="hover71.playclip();this.disabled= true;document.getElementById('button2').style.display = 'block'; this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Lista 1</button></div>
-
-						<speech-input continuous="true" interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
+						<div id="speech1">
+							<speech-input continuous="true" interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
 "></speech-input>
-						<input type="hidden" name="text3"  value="<?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
+							<input type="hidden" name="text3"  value="<?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
 ">
-						<p><?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
+							<p><?php echo print_polymer_binding(array('expr'=>'text3'),$_smarty_tpl);?>
 </p>
-						<hr>
-						<div align="center"><button id="button2" class="botonesdemo" onclick="hover72.playclip();this.disabled= true;this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+						</div>
+							<hr>
+						<div align="center"><button id="button2" class="botonesdemo" onclick="hover72.playclip();this.disabled= true;document.getElementById('speech1').style.display = 'none';this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Lista 2</button></div>
 						<p>
 							<speech-input continuous="true" interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text4'),$_smarty_tpl);?>
@@ -440,23 +440,29 @@ encuesta/pregunta8" enctype="multipart/form-data">
                     <template is="auto-binding">
                             <div class="col-md-1"><button id='button3'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('button4').style.display = 'block';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Grupo 1</button></div>
-                            <speech-input continuous="true" id='speech1' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
+							<div id="speech5">
+								<speech-input continuous="true" id='speech1' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
 "></speech-input>
-                            <input type="hidden" name="text5" value="<?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
+								<input type="hidden" name="text5" value="<?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
 ">
-                            <p><?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
+								<p><?php echo print_polymer_binding(array('expr'=>'text5'),$_smarty_tpl);?>
 </p>
+							</div>
                             <hr>
-                            <div ><button id='button4'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('button5').style.display = 'block';document.getElementById('speech1').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+
+                            <div ><button id='button4'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech5').style.display ='none';document.getElementById('button5').style.display = 'block';document.getElementById('speech1').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Grupo 2</button></div>
-                            <speech-input continuous="true"  id='speech2' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
+							<div id=speech6>
+								<speech-input continuous="true"  interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
 "></speech-input>
-                            <input type="hidden" name="text6" value="<?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
+								<input type="hidden" name="text6" value="<?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
 ">
-                            <p><?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
+								<p><?php echo print_polymer_binding(array('expr'=>'text6'),$_smarty_tpl);?>
 </p>
+							</div>
                             <hr>
-                            <div ><button id='button5'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech2').style.display = 'none';this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+
+                            <div ><button id='button5'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech6').style.display = 'none';this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Grupo 3</button></div>
                             <speech-input continuous="true"  id='speech3' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text7'),$_smarty_tpl);?>
 "></speech-input>
@@ -488,7 +494,7 @@ encuesta/pregunta9" enctype="multipart/form-data">
                 <input type="hidden" name="guardar" value="1" />
                 <table class="table table-bordered" style="  margin-left: 3%;width: 90%;">
                     <template is="auto-binding">
-                                <div class="col-md-1"><button id='button28'  class="botonesdemo" onclick="hover91.playclip();document.getElementById('button29').style.display = 'block';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                                <div class="col-md-1"><button id='button28'  class="botonesdemo" onclick="hover91.playclip();document.getElementById('button29').style.display = 'block';  this.style.display = 'none';return false;" style='display:none'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Escuche la orden</button></div>
                                 <speech-input continuous="true" id='speech4' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text9'),$_smarty_tpl);?>
 "></speech-input>
@@ -497,7 +503,7 @@ views/encuesta/img/audio.png">Escuche la orden</button></div>
                                 <p><?php echo print_polymer_binding(array('expr'=>'text9'),$_smarty_tpl);?>
 </p>
                             <hr>
-                                <div class="col-md-1"><button id='button29'  class="botonesdemo" onclick="hover92.playclip();document.getElementById('speech4').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+                                <div class="col-md-1"><button id='button29'  class="botonesdemo" onclick="hover92.playclip();document.getElementById('speech4').style.display = 'none';  this.style.display = 'none';return false;" style='display:none;'><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Escuche la orden</button></div>
                                 <speech-input continuous="true" id='speech5' interimResults="true" language="es-BO" value="<?php echo print_polymer_binding(array('expr'=>'text10'),$_smarty_tpl);?>
 "></speech-input>
@@ -556,7 +562,8 @@ views/encuesta/img/10-<?php echo $_smarty_tpl->tpl_vars['k']->value;?>
 						</table>
                     </br>
                     <div hidden id="checkedResult"></div>
-					<button id="findChecked"  class="btn btn-success" onclick="gallery.navigate(11)" autofocus><i class="icon-folder-open icon-white"> </i>Siguiente</button>
+					<!--<button id="findChecked"  class="btn btn-success" onclick="gallery.navigate(11)" autofocus><i class="icon-folder-open icon-white"> </i>Siguiente</button>-->
+					<button class="btn btn-success" id="findChecked" onclick="gallery.navigate(11)"><i class="icon-folder-open icon-white"></i>Siguiente</button>
 				</form>
 			</table>
 		</div>
@@ -615,11 +622,11 @@ encuesta/pregunta11" enctype="multipart/form-data">
 			<b>12 - 7 Memoria Operativa : Atenci&oacute;n - C&aacute;lculo y Seguimiento Verbal</b>:
             <div align="center"><button class="botonesdemo" onclick="hover12.playclip();activate();this.disabled= true;document.getElementById('button80').style.display = 'block';  this.style.display = 'none';"><input type="image" onclick='return false;' src="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 views/encuesta/img/audio.png">Escuche la orden</button></div>
-            <table style="width: 90%;">
+            <table class="table table-bordered" style="  margin-left: 3%;width: 90%;">
                 <tr>
                    <th colspan="11"> AYER FUI A LA TIENDA Y COMPRE:</th>
                 </tr>
-                <!--
+
                 <tr>
                     <th width="5%">ITEM</th>
                     <th colspan="10">NUMERO</th>
@@ -634,7 +641,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 </th>
                     <?php }} ?>
                 </tr>
-                -->
+
                 <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int)ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 89+1 - (80) : 80-(89)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0){
 for ($_smarty_tpl->tpl_vars['i']->value = 80, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++){
@@ -938,12 +945,7 @@ views/encuesta/img/audio.png">Escuche la orden</div></div>
 						</template>
 					</td>
 				</tr>
-					<h1><span id="orden1"></span></h1>
-					<h1><span id="orden2"></span></h1>
-					<h1><span id="orden3"></span></h1>
-					<h1><span id="orden4"></span></h1>
-					<h1><span id="orden5"></span></h1>
-					<h1><span id="orden6"></span></h1>
+					<h1><span id="orden"></span></h1>
 				</hr>
 			</table>
 			<form id="form1" method="post" action="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>

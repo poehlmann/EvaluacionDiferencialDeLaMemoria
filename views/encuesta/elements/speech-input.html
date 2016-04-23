@@ -15,14 +15,14 @@
     <section class="controls" >
       <button style='text-align: center;' hidden?="{{ isRecognizing }}"  on-click="{{ startAction }}{{clean}}">
         <input type="image" onclick='return false;' src="microfono.png">
-        --Click Para Grabar--
+        *-Click Para Grabar-*
       </button>
       <button hidden?="{{ !isRecognizing }}" on-click="{{ stopAction }}">
         <input type="image" onclick='return false;' src="microfono2.png">
-        --Click Para Detener--
+        *-Click Para Detener-*
       </button>
+      <textarea class="form-control" rows="4" style="width:99%" value="{{ value }}"></textarea>
     </section>
-    <textarea class="form-control"  rows="4" cols="50"  value="{{ value }}"></textarea>
   </template>
   
   <script>

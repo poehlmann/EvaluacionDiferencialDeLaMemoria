@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-08-24 02:01:11
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-15 21:39:07
          compiled from "C:\Xampp\htdocs\mvc\views\resultado\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8736552e9e11c68bb3-49309219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ecec295e991453204421d6ec840640ce8888f4a7' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\resultado\\index.tpl',
-      1 => 1440374470,
+      1 => 1450211945,
       2 => 'file',
     ),
   ),
@@ -43,21 +43,24 @@ resultado/edm">EDM</a> </td>
                 <?php } ?>
                 <tr>
                     <td>Nombre del Profesional Asignado:<label for="opcion2"><span id="doctor" class="input-xlarge uneditable-input">Dra. Carol Osinaga</span></td>
-                    <td> Resultados MMSE: <a href="edm.tpl">MMSE</a> </td>
+                    <td> Resultados MMSE: <a href="edm.tpl">85</a> Sin deterioro - Felicidades se encuentra saludable de la memoria</td>
                 </tr>
                 <tr>
                     <td>Fecha de Evaluacion:<label for="opcion3"></label><span id="fecha" class="input-xlarge uneditable-input"><?php echo date("m/d/Y");?>
 </span></td>
-                    <td> Escala de Reserva Cognitiva: <a href="edm.tpl">EQUILAM</a> </td>
+                    <td> Escala de Reserva Cognitiva: <a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+encuesta2/obtenerResultado">45</a>Sin deterioro - Felicidades se encuentra saludable de la memoria</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td> Escala de Deterioro Global de Reisberg: <a href="edm.tpl">GDS</a> </td>
+                    <td> Escala de Deterioro Global de Reisberg: <a href="edm.tpl">60</a>Sin deterioro - Felicidades se encuentra saludable de la memoria</td>
                 </tr>
                 <tr>
                     <th colspan="2" align="center">Muchas Gracias por haber utilizado nuestros servicios</th>
                 </tr>
-
+                <tr>
+                    <center><iframe src="http://localhost:8080/google%20maps/index2.php" width="500" height="600"> </iframe></center>
+                </tr>
             </table>
 </div>
 <?php }?><?php }} ?>

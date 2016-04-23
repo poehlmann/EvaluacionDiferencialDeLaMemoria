@@ -1,4 +1,4 @@
-<h2>Administracion de permisos de role</h2>
+<h2>Administracion de permisos de roles</h2>
 
 <p><strong>Role:</strong> {$role.role}</p>
 

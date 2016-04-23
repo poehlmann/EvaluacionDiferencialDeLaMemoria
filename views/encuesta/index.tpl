@@ -29,7 +29,7 @@
                         <img class="img2" src="{$_layoutParams.root}views/encuesta/img/posiblelogo.png">
                     </td>
                     <td style="align-content: center">
-                        <button class="btn btn-danger" onclick="gallery.navigate(1);launchFullscreen(document.documentElement);"><i class="icon-star icon-white"></i>Inicio<i class="icon-star icon-white"></i></button>
+                        <button class="btn btn-danger" onclick="gallery.navigate(1);{*launchFullscreen(document.documentElement);*}"><i class="icon-star icon-white"></i>Inicio<i class="icon-star icon-white"></i></button>
                     </td>
                 </tr>
             </table>
@@ -276,7 +276,7 @@
 					<template is="auto-binding">
 						<speech-input continuous="true" interimResults="true" language="es-BO" value="{poly_bind expr='text1'}"></speech-input>
 						<input type="hidden" name="text1" value="{poly_bind expr='text1'}">
-						<p>{poly_bind expr='text1'}</p>
+						{*<p>{poly_bind expr='text1'}</p>*}
 					</template>
 				</table>
 				<button class="btn btn-success" onclick="gallery.navigate(6)"><i class="icon-folder-open icon-white"></i>Siguiente</button>
@@ -315,12 +315,13 @@
 					<template is="auto-binding">
 						<p>
 						<div align="center"><button id="button1" class="botonesdemo" onclick="hover71.playclip();this.disabled= true;document.getElementById('button2').style.display = 'block'; this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Lista 1</button></div>
-
-						<speech-input continuous="true" interimResults="true" language="es-BO" value="{poly_bind expr='text3'}"></speech-input>
-						<input type="hidden" name="text3"  value="{poly_bind expr='text3'}">
-						<p>{poly_bind expr='text3'}</p>
-						<hr>
-						<div align="center"><button id="button2" class="botonesdemo" onclick="hover72.playclip();this.disabled= true;this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Lista 2</button></div>
+						<div id="speech1">
+							<speech-input continuous="true" interimResults="true" language="es-BO" value="{poly_bind expr='text3'}"></speech-input>
+							<input type="hidden" name="text3"  value="{poly_bind expr='text3'}">
+							<p>{poly_bind expr='text3'}</p>
+						</div>
+							<hr>
+						<div align="center"><button id="button2" class="botonesdemo" onclick="hover72.playclip();this.disabled= true;document.getElementById('speech1').style.display = 'none';this.style.display = 'none';" style="display:none;"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Lista 2</button></div>
 						<p>
 							<speech-input continuous="true" interimResults="true" language="es-BO" value="{poly_bind expr='text4'}"></speech-input>
 							<input type="hidden" name="text4" value="{poly_bind expr='text4'}">
@@ -342,16 +343,22 @@
                 <table class="table table-bordered" style="  margin-left: 3%;width: 90%;">
                     <template is="auto-binding">
                             <div class="col-md-1"><button id='button3'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('button4').style.display = 'block';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Grupo 1</button></div>
-                            <speech-input continuous="true" id='speech1' interimResults="true" language="es-BO" value="{poly_bind expr='text5'}"></speech-input>
-                            <input type="hidden" name="text5" value="{poly_bind expr='text5'}">
-                            <p>{poly_bind expr='text5'}</p>
+							<div id="speech5">
+								<speech-input continuous="true" id='speech1' interimResults="true" language="es-BO" value="{poly_bind expr='text5'}"></speech-input>
+								<input type="hidden" name="text5" value="{poly_bind expr='text5'}">
+								<p>{poly_bind expr='text5'}</p>
+							</div>
                             <hr>
-                            <div ><button id='button4'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('button5').style.display = 'block';document.getElementById('speech1').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Grupo 2</button></div>
-                            <speech-input continuous="true"  id='speech2' interimResults="true" language="es-BO" value="{poly_bind expr='text6'}"></speech-input>
-                            <input type="hidden" name="text6" value="{poly_bind expr='text6'}">
-                            <p>{poly_bind expr='text6'}</p>
+
+                            <div ><button id='button4'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech5').style.display ='none';document.getElementById('button5').style.display = 'block';document.getElementById('speech1').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Grupo 2</button></div>
+							<div id=speech6>
+								<speech-input continuous="true"  interimResults="true" language="es-BO" value="{poly_bind expr='text6'}"></speech-input>
+								<input type="hidden" name="text6" value="{poly_bind expr='text6'}">
+								<p>{poly_bind expr='text6'}</p>
+							</div>
                             <hr>
-                            <div ><button id='button5'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech2').style.display = 'none';this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Grupo 3</button></div>
+
+                            <div ><button id='button5'  class="botonesdemo" onclick="hover8Grupo.playclip();this.disabled= true;document.getElementById('speech6').style.display = 'none';this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Grupo 3</button></div>
                             <speech-input continuous="true"  id='speech3' interimResults="true" language="es-BO" value="{poly_bind expr='text7'}"></speech-input>
                             <input type="hidden" name="text7" value="{poly_bind expr='text7'}">
                             <p>{poly_bind expr='text7'}</p>
@@ -376,12 +383,12 @@
                 <input type="hidden" name="guardar" value="1" />
                 <table class="table table-bordered" style="  margin-left: 3%;width: 90%;">
                     <template is="auto-binding">
-                                <div class="col-md-1"><button id='button28'  class="botonesdemo" onclick="hover91.playclip();document.getElementById('button29').style.display = 'block';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button></div>
+                                <div class="col-md-1"><button id='button28'  class="botonesdemo" onclick="hover91.playclip();document.getElementById('button29').style.display = 'block';  this.style.display = 'none';return false;" style='display:none'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button></div>
                                 <speech-input continuous="true" id='speech4' interimResults="true" language="es-BO" value="{poly_bind expr='text9'}"></speech-input>
                                 <input type="hidden" name="text9" value="{poly_bind expr='text9'}">
                                 <p>{poly_bind expr='text9'}</p>
                             <hr>
-                                <div class="col-md-1"><button id='button29'  class="botonesdemo" onclick="hover92.playclip();document.getElementById('speech4').style.display = 'none';  this.style.display = 'none';" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button></div>
+                                <div class="col-md-1"><button id='button29'  class="botonesdemo" onclick="hover92.playclip();document.getElementById('speech4').style.display = 'none';  this.style.display = 'none';return false;" style='display:none;'><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button></div>
                                 <speech-input continuous="true" id='speech5' interimResults="true" language="es-BO" value="{poly_bind expr='text10'}"></speech-input>
                                 <input type="hidden" name="text10" value="{poly_bind expr='text10'}">
                                 <p>{poly_bind expr='text10'}</p>
@@ -422,7 +429,8 @@
 						</table>
                     </br>
                     <div hidden id="checkedResult"></div>
-					<button id="findChecked"  class="btn btn-success" onclick="gallery.navigate(11)" autofocus><i class="icon-folder-open icon-white"> </i>Siguiente</button>
+					<!--<button id="findChecked"  class="btn btn-success" onclick="gallery.navigate(11)" autofocus><i class="icon-folder-open icon-white"> </i>Siguiente</button>-->
+					<button class="btn btn-success" id="findChecked" onclick="gallery.navigate(11)"><i class="icon-folder-open icon-white"></i>Siguiente</button>
 				</form>
 			</table>
 		</div>
@@ -472,11 +480,11 @@
 		<div id="formbox">
 			<b>12 - 7 Memoria Operativa : Atenci&oacute;n - C&aacute;lculo y Seguimiento Verbal</b>:
             <div align="center"><button class="botonesdemo" onclick="hover12.playclip();activate();this.disabled= true;document.getElementById('button80').style.display = 'block';  this.style.display = 'none';"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button></div>
-            <table style="width: 90%;">
+            <table class="table table-bordered" style="  margin-left: 3%;width: 90%;">
                 <tr>
                    <th colspan="11"> AYER FUI A LA TIENDA Y COMPRE:</th>
                 </tr>
-                <!--
+
                 <tr>
                     <th width="5%">ITEM</th>
                     <th colspan="10">NUMERO</th>
@@ -487,7 +495,7 @@
                         <th>{$i}</th>
                     {/for}
                 </tr>
-                -->
+
                 {for $i=80 to 89}
                     <tr> <!--bgcolor="red"-->
                         <td id="audio{$i-79}">
@@ -713,12 +721,7 @@
 						</template>
 					</td>
 				</tr>
-					<h1><span id="orden1"></span></h1>
-					<h1><span id="orden2"></span></h1>
-					<h1><span id="orden3"></span></h1>
-					<h1><span id="orden4"></span></h1>
-					<h1><span id="orden5"></span></h1>
-					<h1><span id="orden6"></span></h1>
+					<h1><span id="orden"></span></h1>
 				</hr>
 			</table>
 			<form id="form1" method="post" action="{$_layoutParams.root}encuesta/pregunta18" enctype="multipart/form-data">

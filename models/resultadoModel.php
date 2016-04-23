@@ -24,7 +24,7 @@ class resultadoModel extends Model
     public function getNombre($id)
     {
         $id = (int) $id;
-        $post = $this->_db->query("select nombre from tblusuario where id = $id");
+        $post = $this->_db->query("select nombre from tblpersona where id = $id");
         return $post->fetch(PDO::FETCH_COLUMN);
 
     }

@@ -243,5 +243,3 @@ function print_polymer_binding($params, $smarty)
     {
       return sprintf('{{ %s }}', $params['expr']);
     }
-
-?>

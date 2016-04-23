@@ -1,5 +1,4 @@
 <?php
-
 class encuestaController extends Controller
 {
     private $_encuesta;

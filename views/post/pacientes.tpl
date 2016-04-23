@@ -8,9 +8,10 @@
 
 <table class="table table-bordered table-condensed table-striped">
     <tr>
-        <th>ID</th>
+        {*<th>ID</th>*}
         <th>NOMBRE</th>
         <th>EMAIL</th>
+        <th>RESULTADO</th>
          
         {if $_acl->permiso('editar_post')}<th></th>{/if}
         {if $_acl->permiso('eliminar_post')}<th></th>{/if}
@@ -18,7 +19,7 @@
     
      {foreach item=datos from=$posts}
         <tr>
-            <td style="text-align: center;">{$datos.id}</td>
+            {*<td style="text-align: center;">{$datos.id}</td>*}
             <td>{$datos.nombre}</td>
             <td>{$datos.email}</td>
             <!--
@@ -39,6 +40,11 @@
             {if $_acl->permiso('eliminar_post')}
                 <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}post/eliminar/{$datos.id}">Eliminar</a></td>
             {/if}
+            {if isset($encuesta.id_evaluacion)}
+                    <td style="text-align: center; vertical-align: middle;"><a href="{$_layoutParams.root}resultado/buscar/{$datos.id}">Resultados</a></td>
+             {else}
+                     <td style="text-align: center; vertical-align: middle;">No ha realizado la evalación</td>
+             {/if}
         </tr>
     {/foreach}
 </table>

@@ -58,11 +58,9 @@
     <div class="virtualpage hidepiece">
         <div id="preview"> </div>
         <div id="formbox">
-            <b>Ahora le voy a nombrar tres objetos. Despues que se los diga, le voy a pedir que repita en voz alta los<br>
-                que recuede, en cualquier orden.Recuerde los objetos porque se los voy a preguntar mas adelante</b>:
             <div align="center">
                 <button class="botonesdemo" onclick="hover2.playclip();document.getElementById('button1').style.display = 'block';this.style.display = 'none' " ><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button>
-                <button class="botonesdemo" id="button1" onclick="hover2.playclip();this.disabled= true;document.getElementById('button50').style.display = 'block';this.style.display = 'none' " style="display:none;"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Lista de Palabras</button>
+                <button class="botonesdemo" id="button1" onclick="hover21.playclip();this.disabled= true;document.getElementById('button50').style.display = 'block';this.style.display = 'none' " style="display:none;"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Lista de Palabras</button>
             </div><form id="form1" method="post" action="{$_layoutParams.root}encuesta/pregunta2" enctype="multipart/form-data">
                 <input type="hidden" name="guardar" value="1" />
                 <table class="table table-bordered" style="width: 90%;">
@@ -108,11 +106,11 @@
             <b>Seleccione las acciones que le ire indicando:</b>:</br>tome el papel con la mano derecha</br>doblelo por la mitad con ambas manos</br>coloquelo sobre sus piernas </br>
             <div align="center">
                 <button  class="botonesdemo" onclick="hover4.playclip();document.getElementById('accion1').style.display = 'block'; this.style.display = 'none';" ><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png">Escuche la orden</button>
-                <button  id="accion1" class="botonesdemo" onclick="hover41.playclip();document.getElementById('accion2').style.display = 'block'; this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 1</button>
-                <button  id="accion2" class="botonesdemo" onclick="hover42.playclip();document.getElementById('accion3').style.display = 'block'; this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 2</button>
-                <button  id="accion3" class="botonesdemo" onclick="hover43.playclip(); this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 3</button>
+                <button  id="accion1" class="botonesdemo" onclick="hover321.playclip();document.getElementById('accion2').style.display = 'block'; this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 1</button>
+                <button  id="accion2" class="botonesdemo" onclick="hover322.playclip();document.getElementById('accion3').style.display = 'block'; this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 2</button>
+                <button  id="accion3" class="botonesdemo" onclick="hover323.playclip(); this.style.display = 'none';" style="display:none"><input type="image" onclick='return false;' src="{$_layoutParams.root}views/encuesta/img/audio.png" >Acci&oacute;n 3</button>
             </div>
-            <section id="contenedorPuzzle" style="max-width: 100%">
+            <section id="contenedorPuzzle">
                 <div id="contenedorPiezas" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
                     <img id="pieza1" src="{$_layoutParams.root}views/encuesta/img/pieza11.jpg" alt="pieza1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
                     <img id="pieza4" src="{$_layoutParams.root}views/encuesta/img/pieza12.jpg" alt="pieza1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
@@ -121,7 +119,7 @@
                     <img id="pieza3" src="{$_layoutParams.root}views/encuesta/img/pieza31.jpg" alt="pieza1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
                     <img id="pieza6" src="{$_layoutParams.root}views/encuesta/img/pieza32.jpg" alt="pieza1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
                 </div>
-                <div id="puzzle">
+                <div id="puzzle" style="background-image:url({$_layoutParams.root}views/encuesta/img/32.png) ">
                     <div class="contenedorPieza" id="uno" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
                     <div class="contenedorPieza" id="dos" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
                     <div class="contenedorPieza" id="tres" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>

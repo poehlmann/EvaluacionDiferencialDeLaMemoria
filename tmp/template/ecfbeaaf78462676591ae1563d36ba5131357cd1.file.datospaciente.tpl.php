@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2015-04-21 03:12:23
+<?php /* Smarty version Smarty-3.1.8, created on 2015-12-07 23:43:13
          compiled from "C:\Xampp\htdocs\mvc\views\post\datospaciente.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1193554d7e9a6b7c1e3-43430648%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ecfbeaaf78462676591ae1563d36ba5131357cd1' => 
     array (
       0 => 'C:\\Xampp\\htdocs\\mvc\\views\\post\\datospaciente.tpl',
-      1 => 1429578738,
+      1 => 1449528191,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '_acl' => 0,
     'datos' => 0,
     '_layoutParams' => 0,
+    'rol' => 0,
+    'encuesta' => 0,
     'paginacion' => 0,
   ),
   'has_nocache_code' => false,
@@ -48,6 +50,8 @@ $_smarty_tpl->tpl_vars['datos']->_loop = true;
 </td>
         </tr>
         -->
+        
+         
         <tr>
             <td style='font-weight:bold;'> Nombre </td>
             <td style="text-align: center; vertical-align: middle;"><?php echo $_smarty_tpl->tpl_vars['datos']->value['nombre'];?>
@@ -89,24 +93,29 @@ post/eliminar/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
 ">Eliminar</a></td>
             <?php }?>
         </tr>
-        <tr>
-            <td style='font-weight:bold;'> Resultados </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
+         <?php if ($_smarty_tpl->tpl_vars['rol']->value['role']==3||$_smarty_tpl->tpl_vars['rol']->value['role']==1){?>
+             <?php if ($_smarty_tpl->tpl_vars['encuesta']->value['id_evaluacion']!=null){?>
+                <tr>
+                    <td style='font-weight:bold;'> Resultados </td>
+                    <td style="text-align: center; vertical-align: middle;"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
 resultado/buscar/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
-">.</a></td>
-        </tr>
-        <tr>
-            <td style='font-weight:bold;'> ... </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-xxx/xxx/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
-">.</a></td>
-        </tr>
-        <tr>
-            <td style='font-weight:bold;'> ... </td>
-            <td style="text-align: center; vertical-align: middle;"><a href="<?php echo $_smarty_tpl->tpl_vars['_layoutParams']->value['root'];?>
-xxx/xxx/<?php echo $_smarty_tpl->tpl_vars['datos']->value['id'];?>
-">.</a></td>
-        </tr>
+">Resultados</a></td>
+                </tr>
+             <?php }else{ ?>
+                 <tr>
+                     <td style='font-weight:bold;'> Resultados </td>
+                     <td style="text-align: center; vertical-align: middle;">No ha realizado la evalación</td>
+                 </tr>
+             <?php }?>
+         <?php }?>
+        
+            
+            
+        
+        
+            
+            
+        
     <?php } ?>
 </table>
 

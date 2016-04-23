@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
     <head>
+        {*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM27W4efgV0TIecRjqwyBYtJjMRXHJv2o&callback=initMap"*}
+                {*async defer></script>*}
+
         <title>{$titulo|default:"Sin t&iacute;tulo"}</title>
+
+        {*<?php include ('{$_layoutParams.root}public/files/mapModel.php'); ?>*}
         <link rel="shortcut icon" href="{$_layoutParams.ruta_img}icono.png" />
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8">
+        {*<meta http-equiv="Content-type" content="text/html; charset=utf-8" />*}
         <link href="{$_layoutParams.ruta_css}bootstrap.css" rel="stylesheet" type="text/css">
+        {*<link href="{$_layoutParams.root}public/css/marker.css" rel="stylesheet" type="text/css"*}
         <link href="{$_layoutParams.root}views/encuesta/css/stylespeech.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-blue.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href="{$_layoutParams.ruta_css}bootstrap-responsive.css" rel="stylesheet">
         {if isset($_layoutParams.link_plugin) && count($_layoutParams.link_plugin)}
             {foreach item=link from=$_layoutParams.link_plugin}
@@ -31,12 +40,19 @@
 
         <div class="row"  style="background: rgba(224, 234, 182, 0.37); height: 125px; margin-bottom: 20px; width: 100%;">
             <div class="span4" style="margin-left: 16%;width:245px; height:125px; background: url('{$_layoutParams.ruta_img}neurolap.jpg') no-repeat center left"></div>
-            <div class="span7" style="width: 0px;"><h2 style="color: #fff; margin-top: 32px;">NEUROLAP</h2></div>
+            <div class="span7" ><h2 style="font-style: italic;color: #fff; margin-top: 32px;">NEUROLAP</h2><br><h4 style="font-style: italic;color: #fff;margin-top: -5%; ">Laboratorio Neuropsicol&oacute;gico Virtual</h4></div>
         </div>
 
         <div class="container-fluid" >
             <div class="row-fluid">
-                <div class="span9 offset1" style="background: #fff;">
+                <div class="span2" style="max-width: 20%">
+                    {if isset($widgets.sidebar)}
+                        {foreach from=$widgets.sidebar item=wd}
+                            {$wd}
+                        {/foreach}
+                    {/if}
+                </div>
+                <div class="span9 " style="background: #fff;">
                     <noscript><p>Para el correcto funcionamiento debe tener el soporte para javascript habilitado</p></noscript>
                     {if isset($_error)}
                         <div id="_errl" class="alert alert-error">
@@ -53,13 +69,7 @@
                     {/if}
                     {include file=$_contenido}
                 </div>
-                <div class="span2" >
-                    {if isset($widgets.sidebar)}
-                        {foreach from=$widgets.sidebar item=wd}
-                            {$wd}
-                        {/foreach}
-                    {/if}
-                </div>
+
             </div>
 
         </div>
@@ -68,12 +78,14 @@
         <div class="navbar navbar-fixed-bottom">
             <div class="navbar-inner">
                 <div class="container">
-                    <div style="margin-top: 10px; text-align: center;">Copyright&copy; 2015 <a href="TESIS-UPSA" target="_blank">TESIS-UPSA</a></div>
+                    <div style="margin-top: 10px; text-align: center;">Copyright&copy; 2015 <a href="" target="_blank">TESIS-UPSA</a></div>
                 </div>
             </div>
         </div>
 
         <!-- javascript -->
+
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
         <script type="text/javascript" src="{$_layoutParams.root}public/js/jquery-1.7.2.min.js"></script>
         <!--<script type="text/javascript" src="{$_layoutParams.root}public/js/treetagger.js"></script>-->
         <script type="text/javascript" src="{$_layoutParams.ruta_js}bootstrap.js"></script>
@@ -96,8 +108,11 @@
         <script type="text/javascript" src="{$_layoutParams.ruta_js}jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="{$_layoutParams.ruta_js}cufon-yui.js" ></script>
         <script type="text/javascript" src="{$_layoutParams.ruta_js}Quicksand_Book_400.font.js" ></script>
-        <script src="http://www.google.com/jsapi"></script>
-        <script>google.load("jquery", "1");</script>
+        {*<script src="http://www.google.com/jsapi"></script>*}
+        <script type="text/javascript" src="{$_layoutParams.root}public/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCu1TRnRzmgLs3OpGdFOLdp7QOToxkao8M&sensor=false"></script>
+        {*<script type="text/javascript">*}
+        {*<script>google.load("jquery", "1");</script>*}
         <script type="text/javascript">
             var _root_ = '{$_layoutParams.root}';
         </script>
