@@ -112,7 +112,7 @@ abstract class Controller
             $_POST[$clave] = strip_tags($_POST[$clave]);
             
             if(!get_magic_quotes_gpc()){
-                $_POST[$clave] = mysql_real_escape_string($_POST[$clave], mysql_connect(DB_HOST, DB_USER, DB_PASS));
+                $_POST[$clave] = mysqli_real_escape_string(mysqli_connect(DB_HOST, DB_USER, DB_PASS),$_POST[$clave]);
             }
             
             return trim($_POST[$clave]);

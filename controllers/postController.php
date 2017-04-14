@@ -9,7 +9,7 @@ class postController extends Controller
         parent::__construct();
         $this->_post = $this->loadModel('post');
         $this->_map = $this->loadModel('map');
-        $this->_codigo = rand(1, 99999999999999999999);
+        $this->_codigo = rand(1, 99999999999);
         //$this->_datopaciente= $this->loadModel('login');
     }
     

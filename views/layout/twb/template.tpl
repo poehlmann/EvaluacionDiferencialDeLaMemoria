@@ -78,7 +78,7 @@
         <div class="navbar navbar-fixed-bottom">
             <div class="navbar-inner">
                 <div class="container">
-                    <div style="margin-top: 10px; text-align: center;">Copyright&copy; 2015 <a href="" target="_blank">TESIS-UPSA</a></div>
+                    <div style="margin-top: 10px; text-align: center;">Copyright&copy; <script type="text/javascript"> {literal} new Date().getFullYear(); {/literal} </script> <a href="" target="_blank">TESIS-UPSA</a></div>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
         <script type="text/javascript" src="{$_layoutParams.root}public/js/jquery-1.7.2.min.js"></script>
         <!--<script type="text/javascript" src="{$_layoutParams.root}public/js/treetagger.js"></script>-->
         <script type="text/javascript" src="{$_layoutParams.ruta_js}bootstrap.js"></script>
-        <script type="text/javascript" src="{$_layoutParams.ruta_js}modernizr.custom.80867.js"></script>
+        {*<script type="text/javascript" src="{$_layoutParams.ruta_js}modernizr.custom.80867.js"></script>*}
         <script type="text/javascript" src="{$_layoutParams.ruta_css}js/bootstrap-transition.js"></script>
         <script type="text/javascript" src="{$_layoutParams.ruta_css}js/bootstrap-alert.js"></script>
         <script type="text/javascript" src="{$_layoutParams.ruta_css}js/bootstrap-modal.js"></script>
@@ -116,7 +116,7 @@
         <script type="text/javascript">
             var _root_ = '{$_layoutParams.root}';
         </script>
-        <script type="text/javascript" src="{$_layoutParams.root}views/encuesta/node_modules/resemblejs/resemble.js"></script>
+        {*<script type="text/javascript" src="{$_layoutParams.root}views/encuesta/node_modules/resemblejs/resemble.js"></script>*}
         <script src="{$_layoutParams.root}public/js/jquery.ez-bg-resize.js" type="text/javascript" ></script>
 
         {if isset($_layoutParams.js_plugin) && count($_layoutParams.js_plugin)}

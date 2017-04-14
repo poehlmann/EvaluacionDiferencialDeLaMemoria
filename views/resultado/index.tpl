@@ -24,7 +24,7 @@
                     <th colspan="2" align="center">Muchas Gracias por haber utilizado nuestros servicios</th>
                 </tr>
                 <tr>
-                    <center><iframe src="http://localhost:8080/google%20maps/index2.php" width="500" height="600"> </iframe></center>
+                    <center><iframe src="http://evaluaciondiferencial.epizy.com/google%20maps/index2.php" width="500" height="600"> </iframe></center>
                 </tr>
             </table>
 </div>

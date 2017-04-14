@@ -12,7 +12,7 @@ class registroController extends Controller
         $this->_registropersona = $this->loadModel('persona');
         $this->_view->setTemplate('twb');
         $this->_view->setWidgetOptions('menu-top', array('top', 'top', true));
-        $this->_codigo = rand(1, 99999999999999999999);
+        $this->_codigo = rand(1, 9999999999999);
     }
 
     /**
@@ -157,7 +157,7 @@ class registroController extends Controller
                 exit;
             }
 
-            $mail->From = 'Laboratorio Neuropsicológico Virtual - NEUROLAP';
+            $mail->From = 'Laboratorio Neuropsicolï¿½gico Virtual - NEUROLAP';
             $mail->FromName = 'Registro - Usuario Nuevo';
             $mail->Subject = 'Activacion de cuenta de usuario';
             $mail->Body = 'Hola <strong>' . $this->getSql('nombre') . '</strong>,' .

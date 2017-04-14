@@ -78,5 +78,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
     <?php $_smarty_tpl->tpl_vars['tipousuario'] = new Smarty_variable(substr($_SERVER['REQUEST_URI'],-1), null, 0);?>
     <?php if ($_smarty_tpl->tpl_vars['tipousuario']->value==2){?>
-    <h1 class="heading">MAPA DE NEUROPSICOLOGOS</h1><div align="center"><a href="http://localhost:8080/google%20maps/">Entrar para introducir tu ubicacion</a></div>
+    <h1 class="heading">MAPA DE NEUROPSICOLOGOS</h1><div align="center"><a href="http://evaluaciondiferencial.epizy.com/google%20maps/">Entrar para introducir tu ubicacion</a></div>
     <?php }?><?php }} ?>

@@ -18,4 +18,4 @@ var gallery=new virtualpaginate({
 	persist: true //Remember last viewed page and recall it when user returns within a browser session?
 });
 
-gallery.buildpagination(["gallerypaginate", "gallerypaginate2"]);
+gallery.buildpagination(["gallerypaginate"]);
